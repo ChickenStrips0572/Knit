@@ -205,8 +205,14 @@ function KnitClient.AddControllers(parent: Instance): { Controller }
 		if not v:IsA("ModuleScript") then
 			continue
 		end
+		local S , E = pcall(function()
+			table.insert(addedControllers, require(v))
+		end)
 
-		table.insert(addedControllers, require(v))
+		if not S then
+			warn(E)
+		end
+
 	end
 
 	return addedControllers
