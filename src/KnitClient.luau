@@ -212,7 +212,6 @@ function KnitClient.AddControllers(parent: Instance): { Controller }
 		if not S then
 			warn(E)
 		end
-
 	end
 
 	return addedControllers

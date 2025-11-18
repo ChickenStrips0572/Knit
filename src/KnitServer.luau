@@ -220,7 +220,9 @@ function KnitServer.AddServices(parent: Instance): { Service }
 			continue
 		end
 
-		table.insert(addedServices, require(v))
+		local S , E = pcall(function()
+			table.insert(addedServices, require(v))
+		end)
 	end
 
 	return addedServices
